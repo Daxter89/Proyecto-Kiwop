@@ -10,7 +10,9 @@
     <!--link per el funcionamnet de la taula -->
     <script>
         $(document).ready(function() {
-            $('#horarioTable').DataTable();
+            $('#horarioTable').DataTable({
+                "pageLength": 20
+            });
         });
     </script>
 
