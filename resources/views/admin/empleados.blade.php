@@ -19,6 +19,7 @@
                     <th>Actividad</th>
                     <th>Estado</th>
                     <th>Acciones</th>
+                    <th>Modificador</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,10 +48,6 @@
                                     <button type="submit" class="btn btn-info">Reactivar</button>
                                 </form>
                             @endif
-                            <form action="{{ route('usuarios.editar', $usuario) }}" method="GET">
-                                @csrf
-                                <button type="submit" class="btn btn-danger">Modificar</button>
-                            </form>
                         </td>
                         <td>
                             <form action="{{ route('usuarios.editar', $usuario) }}" method="GET">
