@@ -48,6 +48,12 @@
                                 </form>
                             @endif
                         </td>
+                        <td>
+                            <form action="{{ route('usuarios.editar', $usuario) }}" method="GET">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Modificar</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

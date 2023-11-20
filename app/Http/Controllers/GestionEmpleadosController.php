@@ -26,4 +26,10 @@ class GestionEmpleadosController extends Controller
         $usuario->save();
         return redirect()->route('admin.usuarios');
     }
+
+    public function editar(User $usuario)
+    {
+        return view('admin.editar_empleado', compact('usuario'));
+    }
+
 }
