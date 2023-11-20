@@ -37,4 +37,22 @@ class UserController extends Controller
 
         return redirect()->route('fichar-admin');
     }
+    public function update(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:8|confirmed',
+            'rol' => 'required|in:admin,employee',
+        ]);
+
+        // Logic to update the user
+        $user = auth()->user();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->rol = $request->input('rol');
+
+        return redirect()->route('admin.dashboard')->with('success', 'User updated successfully.');
+    }
 }

@@ -15,7 +15,7 @@
             <div class="card-header">{{ __('Editar Empleado') }}</div>
 
             <div class="card-body">
-                <form method="POST" action="{{ route('add.employee') }}">
+                <form method="POST" action="{{ route('update.employee') }}">
                     @csrf
 
                     <div class="row mb-3">

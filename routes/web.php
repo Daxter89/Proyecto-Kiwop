@@ -69,6 +69,10 @@ Route::middleware(['rol:admin'])->group(function () {
     Route::view('/mapa-fichajes', 'admin.mapa')->name('mapa');
     //Parte de exportar CSV-----------------------------------------------------------
     Route::get('/exportar-csv', [HorarioGeneralController::class, 'exportarCSV'])->name('exportarCSV');
+    // Redirect para editar usuario desde el dashboard
+    Route::get('/updateEmployee-form' , function(){ return view('auth.update'); })->name('update.employee.form');
+    Route::get('/update', [UserController::class, 'update'])->name('update.employee');
+
 });
 
 // Rutas para el empleado
