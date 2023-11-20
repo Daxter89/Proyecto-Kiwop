@@ -19,6 +19,7 @@
                     <th>Actividad</th>
                     <th>Estado</th>
                     <th>Acciones</th>
+                    <th>Modificador</th>
                 </tr>
             </thead>
             <tbody>
