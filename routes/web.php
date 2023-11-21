@@ -58,10 +58,6 @@ Route::middleware(['rol:admin'])->group(function () {
     Route::get('/admin/usuarios', [GestionEmpleadosController::class, 'gestion'])->name('admin.usuarios');
     Route::put('/usuarios/{usuario}/desactivar', [GestionEmpleadosController::class, 'desactivar'])->name('usuarios.desactivar');
     Route::put('/usuarios/{usuario}/reactivar', [GestionEmpleadosController::class, 'reactivar'])->name('usuarios.reactivar');
-
-    //Ruta para editar usuarios------------------------------------------------------------
-    Route::get('/usuarios/{usuario}/editar', [GestionEmpleadosController::class, 'editar'])->name('usuarios.editar');
-
     Route::get('/solicitudes-pendientes', [SolicitudesPendientesController::class, 'showPending'])->name('solicitudes-pendientes');
     Route::post('/aprobar/{solicitud}', [SolicitudesPendientesController::class, 'approve'])->name('approve');
     Route::post('/desaprobar/{solicitud}', [SolicitudesPendientesController::class, 'reject'])->name('reject');
@@ -74,6 +70,11 @@ Route::middleware(['rol:admin'])->group(function () {
 
     //Ruta para exportar CSV-----------------------------------------------------------
     Route::get('/exportar-csv', [HorarioGeneralController::class, 'exportarCSV'])->name('exportarCSV');
+
+    //Ruta para editar usuarios------------------------------------------------------------
+    Route::get('/usuarios/{usuario}/editar', [GestionEmpleadosController::class, 'editar'])->name('usuarios.editar');
+    Route::put('/usuarios/{usuario}/actualizar', [GestionEmpleadosController::class, 'actualizar'])->name('usuarios.actualizar');
+
     // Redirect para editar usuario desde el dashboard
     Route::get('/updateEmployee-form' , function(){ return view('auth.update'); })->name('update.employee.form');
     Route::get('/update', [UserController::class, 'update'])->name('update.employee');
