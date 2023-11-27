@@ -56,5 +56,4 @@ class GestionEmpleadosController extends Controller
     return redirect()->route('admin.usuarios')->with('success', 'Usuario actualizado correctamente.');
     }
 
-
 }

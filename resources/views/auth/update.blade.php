@@ -12,7 +12,7 @@
     <div class="col-lg-8 ">
 
         <div class="card">
-            <div class="card-header">{{ __('Editar Usuarios') }}</div>
+            <div class="card-header">{{ __('Editar Empleado') }}</div>
 
             <div class="card-body">
                 <form method="POST" action="{{ route('update.employee') }}">
@@ -82,7 +82,7 @@
                     <div class="row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary">
-                                {{ __('Guardar') }}
+                                {{ __('Update') }}
                             </button>
                         </div>
                     </div>
