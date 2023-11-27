@@ -74,6 +74,18 @@ Route::middleware(['rol:admin'])->group(function () {
     //Ruta para editar usuarios------------------------------------------------------------
     Route::get('/usuarios/{usuario}/editar', [GestionEmpleadosController::class, 'editar'])->name('usuarios.editar');
     Route::put('/usuarios/{usuario}/actualizar', [GestionEmpleadosController::class, 'actualizar'])->name('usuarios.actualizar');
+
+
+    // Ruta editar tu propio usuario
+    Route::get('/updateEmployee-form', function () {
+        return view('auth.update');
+    })->name('update.employee.form');
+
+    // Route for updating user information
+    Route::post('/update', [UserController::class, 'update'])->name('update.employee');
+
+
+
 });
 
 // Rutas para el empleado
