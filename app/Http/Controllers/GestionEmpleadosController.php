@@ -27,13 +27,12 @@ class GestionEmpleadosController extends Controller
         return redirect()->route('admin.usuarios');
     }
 
-    // Funció que retorna la vista de edició d'usuari
     public function editar(User $usuario)
     {
         return view('admin.editar_empleado', compact('usuario'));
     }
 
-    // Funció que controla la actualització de usuaris
+
     public function actualizar(Request $request, User $usuario)
     {
     // Validación de campos
@@ -42,6 +41,7 @@ class GestionEmpleadosController extends Controller
         'email' => 'required|email|max:255',
         'password' => 'nullable|string|min:8|confirmed',
         'rol' => 'required|in:admin,employee',
+        // Agrega otras reglas de validación según sea necesario
     ]);
 
     // Actualiza los campos del usuario con los nuevos valores
@@ -50,6 +50,7 @@ class GestionEmpleadosController extends Controller
         'email' => $request->input('email'),
         'password' => $request->input('password') ? bcrypt($request->input('password')) : $usuario->password,
         'rol' => $request->input('rol'),
+        // Actualiza otros campos según sea necesario
     ]);
 
     return redirect()->route('admin.usuarios')->with('success', 'Usuario actualizado correctamente.');
