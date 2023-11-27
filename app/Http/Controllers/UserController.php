@@ -39,6 +39,7 @@ class UserController extends Controller
     }
     public function update(Request $request)
     {
+        dd($request->all());
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
@@ -53,6 +54,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->rol = $request->input('rol');
 
-        return redirect()->route('admin.dashboard')->with('success', 'User updated successfully.');
+        return redirect()->route('update.employee')->with('success', 'User updated successfully.');
+
     }
 }
