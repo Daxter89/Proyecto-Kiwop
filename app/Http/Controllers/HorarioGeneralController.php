@@ -20,13 +20,34 @@ class HorarioGeneralController extends Controller
     {
         $mes = $request->input('mes');
         $anio = $request->input('anio');
-
-        $horarioGeneral = Registro::with('user')
-            ->paginate(1000000);
-
-
+    
+        $query = Registro::with('user');
+    
+        // Apply filters if both month and year are selected
+        if ($mes && $anio) {
+            $query->whereMonth('entrada', $mes)
+                  ->whereYear('entrada', $anio);
+        }
+    
+        $horarioGeneral = $query->paginate(1000000);
+    
         return view('admin.horarioGeneral', compact('horarioGeneral', 'mes', 'anio'));
     }
+
+    // public function filtrar(Request $request)
+    // {
+    //     $mes = $request->input('mes');
+    //     $anio = $request->input('anio');
+
+    //     $horarioGeneral = Registro::whereMonth('entrada', $mes)
+    //                         ->whereYear('entrada', $anio)
+    //                         ->paginate(9);
+
+    //     // Resto del código del controlador
+
+    //     return view('admin.horarioGeneral', compact('horarioGeneral', 'mes', 'anio'));
+    // }
+
 
     //Recoger los datos filtrados--------------------------------------------------------
     public function filtrar(Request $request)

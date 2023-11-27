@@ -14,6 +14,7 @@ class Registro extends Model
         'id_user',
         'entrada',
         'salida',
+        
     ];
 
     public function user(){

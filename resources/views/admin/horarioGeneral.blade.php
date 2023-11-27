@@ -11,7 +11,8 @@
     <script>
         $(document).ready(function() {
             $('#horarioTable').DataTable({
-                "pageLength": 20
+                "pageLength": 20,
+                "searching": true, // Ensure searching is enabled
             });
         });
     </script>
