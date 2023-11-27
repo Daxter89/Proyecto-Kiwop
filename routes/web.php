@@ -60,8 +60,11 @@ Route::middleware(['rol:admin'])->group(function () {
     })->name('fichar-admin');
     Route::get('/mostrar-horario-general', [HorarioGeneralController::class, 'horarioGeneral'])->name('mostrar.horario.general');
     Route::get('/admin/usuarios', [GestionEmpleadosController::class, 'gestion'])->name('admin.usuarios');
+
+    // Ruta para activar desactivar usuario seleccionado
     Route::put('/usuarios/{usuario}/desactivar', [GestionEmpleadosController::class, 'desactivar'])->name('usuarios.desactivar');
     Route::put('/usuarios/{usuario}/reactivar', [GestionEmpleadosController::class, 'reactivar'])->name('usuarios.reactivar');
+
     Route::get('/solicitudes-pendientes', [SolicitudesPendientesController::class, 'showPending'])->name('solicitudes-pendientes');
     Route::post('/aprobar/{solicitud}', [SolicitudesPendientesController::class, 'approve'])->name('approve');
     Route::post('/desaprobar/{solicitud}', [SolicitudesPendientesController::class, 'reject'])->name('reject');
