@@ -60,6 +60,7 @@
                             @endforeach
                         </select>
                     </div>
+
                     <div class="col-md-6">
                         <label for="anio">Seleccionar:</label>
                         <!-- Desplegable de Año -->
@@ -76,6 +77,20 @@
                         </select>
                     </div>
                 </div>
+
+
+                <div class="col-md-6">
+                    <label for="usuario">Seleccionar Trabajador:</label>
+                    <!-- Desplegable de Trabajadores -->
+                    <select name="usuario" id="usuario" class="form-control">
+                        <option value="" @if (!$usuario) selected @endif>Seleccionar Trabajador</option>
+                        @foreach ($usuarios as $usuarioItem)
+                            <option value="{{ $usuarioItem->id }}" @if ($usuario == $usuarioItem->id) selected @endif>
+                                {{ $usuarioItem->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <button type="submit" class="btn btn-primary mt-3">Filtrar</button>
             </form>
 
