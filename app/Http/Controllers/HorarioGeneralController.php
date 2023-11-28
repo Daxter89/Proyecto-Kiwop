@@ -34,7 +34,9 @@ class HorarioGeneralController extends Controller
         }
 
         if ($usuario) {
-            $query->where('user_id', $usuario);
+            $query->whereHas('user', function ($query) use ($usuario) {
+                $query->where('id', $usuario);
+            });
         }
 
         $horarioGeneral = $query->paginate(1000000);
