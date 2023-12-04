@@ -29,7 +29,7 @@ class GestionEmpleadosController extends Controller
 
     public function editar(User $usuario)
     {
-        return view('admin.editar_empleado', compact('usuario'));
+        return view('admin.Editar_empleado', compact('usuario'));
     }
 
 
