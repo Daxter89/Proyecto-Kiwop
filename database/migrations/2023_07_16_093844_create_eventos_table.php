@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('eventos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user');
+            $table->enum('status', ['vacaciones', 'alta', 'baja']); // Campo de enumeración
             $table->string('title');
             $table->date('start');
             $table->date('end');
