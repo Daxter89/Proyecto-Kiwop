@@ -13,6 +13,7 @@ use App\Http\Controllers\HorarioGeneralController;
 use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\SolicitudesPendientesController;
 use App\Http\Controllers\ArchivoController;
+use App\Http\Controllers\CalendarController;
 use League\Csv\Writer;
 use App\Models\Solicitud;
 
@@ -81,6 +82,9 @@ Route::middleware(['rol:admin'])->group(function () {
     //Ruta para editar usuarios------------------------------------------------------------
     Route::get('/usuarios/{usuario}/editar', [GestionEmpleadosController::class, 'editar'])->name('usuarios.editar');
     Route::put('/usuarios/{usuario}/actualizar', [GestionEmpleadosController::class, 'actualizar'])->name('usuarios.actualizar');
+
+    // Ruta para el controlador del calendario----------------------------------------------
+    Route::post('/guardar-fechas', [CalendarController::class, 'guardarFechas'])->name('guardar-fechas');
 });
 
 // Rutas para el empleado
