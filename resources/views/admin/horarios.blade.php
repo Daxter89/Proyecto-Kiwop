@@ -23,7 +23,7 @@
               <td>{{$horario->entrada}}</td>
               <td>{{$horario->salida}}</td>
              </tr>
-             
+
             @endforeach
             </tbody>
           </table>
